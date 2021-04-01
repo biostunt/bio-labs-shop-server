@@ -1,6 +1,7 @@
 import { Sequelize } from "sequelize-typescript";
 import Crypto from 'crypto';
 import { ILogger } from "../Logger/Logger";
+import { SocketIO } from "../Socket-IO";
 
 
 
@@ -23,12 +24,16 @@ export class Core {
             this.logger.write({ instance: this.name, message: 'Sequelize synchronization complete...' });
             this.sequelize = sequelize;
         } catch ({ message }) {
-            this.logger.write({ instance: this.name, message: `message` });
+            this.logger.write({ instance: this.name, message });
         }
     }
 
-    public async initSocketIO(): Promise<void> {
-
+    public async initSocketIO(socketIO: SocketIO): Promise<void> {
+        try {
+            throw new Error('socketIO not loaded');
+        } catch ({ message }) {
+            this.logger.write({ instance: this.name, message });
+        }
     }
 
 }
