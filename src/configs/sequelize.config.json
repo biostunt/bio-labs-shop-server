@@ -1,0 +1,7 @@
+{
+    "user": "root",
+    "password": "",
+    "host": "localhost",
+    "database": "bio_lab_shop",
+    "dialect": "mysql"
+}
