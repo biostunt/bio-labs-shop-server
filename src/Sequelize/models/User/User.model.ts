@@ -1,4 +1,5 @@
-import { AutoIncrement, BelongsTo, Column, Default, DefaultScope, ForeignKey, HasOne, Model, PrimaryKey, Scopes, Table } from "sequelize-typescript";
+import { AutoIncrement, BelongsTo, Column, Default, DefaultScope, ForeignKey, HasMany, HasOne, Model, PrimaryKey, Scopes, Table } from "sequelize-typescript";
+import { Review } from "../Product/Review.model";
 import { UserAddress } from "./UserAddress.model";
 import { UserRole } from "./UserRole.model";
 
@@ -40,4 +41,7 @@ export class User extends Model {
 
     @HasOne(() => UserAddress)
     address: UserAddress;
+
+    @HasMany(() => Review)
+    reviews: Review[];
 }

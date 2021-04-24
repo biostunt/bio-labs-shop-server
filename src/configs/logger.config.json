@@ -1,0 +1,5 @@
+{
+    "outputToConsole" : false,
+    "divideByInstances": true,
+    "folderName" : "../logs/startup-${date}"
+}

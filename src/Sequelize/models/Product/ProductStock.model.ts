@@ -20,7 +20,6 @@ export class ProductStock extends Model {
     @ForeignKey(() => Shop)
     @Column
     shopId: number;
-
     
     @Column
     @Default(0)

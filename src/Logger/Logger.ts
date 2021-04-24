@@ -14,6 +14,7 @@ export interface ILogger {
 
 type TCompileMessageFunction = (instance: string, message: string) => string;
 
+
 export interface ILoggerProps {
     /**
      * @description Should logger write data to console?
@@ -59,7 +60,7 @@ export class Logger implements ILogger {
     }) {
         this.outputToConsole = props.outputToConsole;
         this.divideByInstances = props.divideByInstances;
-        this.folderName = props.folderName;
+        this.folderName = props.folderName.replace('${date}', new Date().toISOString().split('T')[1].split('.')[0]);
     }
 
     public async write(props: ILoggerWriteProps): Promise<void> {

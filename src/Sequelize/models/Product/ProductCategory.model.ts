@@ -1,4 +1,4 @@
-import { AutoIncrement, Column, ForeignKey, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { AutoIncrement, BelongsTo, Column, ForeignKey, Model, NotNull, PrimaryKey, Table } from "sequelize-typescript";
 import { Category } from "./Category.model";
 import { Product } from './Product.model';
 
@@ -16,9 +16,17 @@ export class ProductCategory extends Model {
 
     @ForeignKey(() => Category)
     @Column
+    @NotNull
     categoryId: number;
+
+    @BelongsTo(() => Category)
+    category: Category;
 
     @ForeignKey(() => Product)
     @Column
+    @NotNull
     productId: number;
+
+    @BelongsTo(() => Product)
+    product: Product;
 }

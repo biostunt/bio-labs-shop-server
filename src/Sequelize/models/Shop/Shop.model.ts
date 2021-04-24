@@ -1,4 +1,5 @@
-import { AutoIncrement, Column, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { AutoIncrement, Column, HasMany, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { ProductStock } from "../Product/ProductStock.model";
 
 
 
@@ -14,4 +15,7 @@ export class Shop extends Model {
 
     @Column
     address: string;
+
+    @HasMany(() => ProductStock)
+    stocks: ProductStock[];
 }
